@@ -3,7 +3,10 @@ const { Schema } = require("mongoose");
 
 const customerSchema = new Schema({
     id: {type: String},
-    address: {type: String, required: true},
+    name: {type: String, required: true},
+    phone: {type: [String], required: true},
+    email: {type: [String], minLength: 8},
+    case: {type: [mongoose.Schema.Types.ObjectId], ref: "Case"}
     
 });
 

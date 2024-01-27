@@ -3,7 +3,7 @@ const { Schema } = require("mongoose");
 
 const caseSchema = new Schema({
     id: {type: String},
-    customer: {type: String, required: true},
+    customer: {type: mongoose.Schema.Types.ObjectId, ref: "Customer"},
     phone: {type: String},
     email: {type: String, minLength: 6},
     address: {type: String, required: true},
