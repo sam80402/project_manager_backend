@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.use("/api/admin", authRoute);
+app.use("/api/auth", authRoute);
 
 app.listen(8080,() => {
     console.log('port 8080 is running...');
