@@ -1,7 +1,12 @@
 const router = require('express').Router();
 
-router.post("/", async(req, res) => {
-    
+router.post("/:_id", async(req, res) => {
+    let { _id } = req.params;
+    try {
+        
+    } catch (e) {
+        
+    }
 });
 
 module.exports = router;
