@@ -5,7 +5,7 @@ const cors = require("cors");
 require('dotenv').config();
 
 const authRoute = require('./routes').auth;
-
+const customerRoute = require('./routes').customer;
 
 mongoose
   .connect("mongodb://127.0.0.1:27017/Project_ManagerDB")
@@ -21,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use("/api/auth", authRoute);
+app.use("/api/customer", customerRoute);
 
 app.listen(8080,() => {
     console.log('port 8080 is running...');

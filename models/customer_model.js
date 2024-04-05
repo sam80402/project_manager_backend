@@ -6,7 +6,7 @@ const customerSchema = new Schema({
     name: {type: String, required: true},
     phone: {type: [String], required: true},
     email: {type: [String], minLength: 8},
-    case: {type: [mongoose.Schema.Types.ObjectId], ref: "Case"}
+    cases: {type: [mongoose.Schema.Types.ObjectId], ref: "Case"}
     
 });
 
