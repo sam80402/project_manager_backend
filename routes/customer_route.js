@@ -1,6 +1,11 @@
 const router = require('express').Router();
 const Customer = require('../models').customer;
 
+router.use((req, res, next) => {
+    console.log("Receiving a request about customer...");
+    next();
+});
+
 //add new customer 
 router.post("/", async(req, res) => {
     let {name, phone, email} = req.body;
