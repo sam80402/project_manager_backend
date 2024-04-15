@@ -7,12 +7,12 @@ const caseSchema = new Schema({
     address: {type: String, required: true},
     building_type: {type: String, enum: ["single", "double", "wirehouse", "strata", "commercial"], required: true},
     quotation_progress: {type: String, 
-        enum: ["Awaiting On-site Assessment", "Pending Quotation Issuance", "Awaiting Closure", "Closed Deal"], 
-        required: true, default: "Awaiting On-site Assessment"},
-    description: {type: String},
+        enum: ["Receive Quote Request", "Assessment", "Send Quote", "Client Approval",
+         "Plan Execution Timeline", "Execute Case", "Case Completion",
+          "Send Invoice", "Get Payment"], 
+        required: true, default: "Receive Quote Request"},
+    description: {type: String, required: true, default: ""},
     price: {type: Number},
-    working_progress: {type: String, enum: ["Arrange time", "Doing", "Done"]},
-    payment_progress: {type: String, enum: ["Waiting", "Finish"]},
     date: {type: Date, required: true},
 
 

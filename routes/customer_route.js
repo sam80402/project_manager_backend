@@ -27,7 +27,7 @@ router.post("/", async(req, res) => {
 router.get("/:_id", async(req, res) => {
     let { _id } = req.params;
     try{
-        let customerFound = await Customer.findOne({ _id }).populate("cases").exec();
+        let customerFound = await Customer.findOne({ _id });
         return res.send(customerFound);
     }catch(e){
         return res.status(500).send(e);
