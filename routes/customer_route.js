@@ -34,4 +34,37 @@ router.get("/:_id", async(req, res) => {
     }
 });
 
+// find customer by name
+router.get("/findByName/:name", async(req, res) => {
+    let { name } = req.params;
+    try{
+        let customerFound = await Customer.find({ name: name });
+        return res.send(customerFound);
+    }catch(e){
+        return res.status(500).send(e);
+    }
+});
+
+// find customer by phone
+router.get("/findByPhone/:phone", async(req, res) => {
+    let { phone } = req.params;
+    try{
+        let customerFound = await Customer.find({ phone: phone });
+        return res.send(customerFound);
+    }catch(e){
+        return res.status(500).send(e);
+    }
+});
+
+// find customer by email
+router.get("/findByEmail/:email", async(req, res) => {
+    let { email } = req.params;
+    try{
+        let customerFound = await Customer.find({ email: email });
+        return res.send(customerFound);
+    }catch(e){
+        return res.status(500).send(e);
+    }
+});
+
 module.exports = router;
