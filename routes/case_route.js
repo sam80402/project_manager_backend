@@ -7,13 +7,12 @@ router.use((req, res, next) => {
 });
 
 // add case base on customer
-router.post("/customer/:_customer_id", async(req, res) => {
-    let { _customer_id } = req.params;
-    let { address, building_type, description, date } = req.body;
+router.post("/", async(req, res) => {
+    let { customer, address, building_type, description, date } = req.body;
     
     try {
         let newCase = new Case({
-            _customer_id,
+            customer,
             address,
             building_type,
             description,
@@ -25,6 +24,18 @@ router.post("/customer/:_customer_id", async(req, res) => {
     } catch (e) {
         return res.status(500).send({message: "Cannot create a new case...",
     data: e});
+    }
+});
+
+// search case by customer id
+router.get("/customer/:_customer_id", async(req, res) => {
+    let { _customer_id } = req.params;
+    
+    try {
+        let caseFound = await Case.find({ customer: _customer_id}).populate("customer",["name","phone"]).exec();
+        return res.send(caseFound);
+    } catch (e) {
+        return res.status(500).send({e});
     }
 });
 
