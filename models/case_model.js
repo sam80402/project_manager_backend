@@ -5,7 +5,7 @@ const caseSchema = new Schema({
     id: {type: String},
     customer: {type: mongoose.Schema.Types.ObjectId, ref: "Customer"},
     address: {type: String, required: true},
-    building_type: {type: String, enum: ["single", "double", "wirehouse", "strata", "commercial"], required: true},
+    building_type: {type: String, enum: ["single", "double", "warehouse", "strata", "commercial"], required: true},
     quotation_progress: {type: String, 
         enum: ["Receive Quote Request", "Assessment", "Send Quote", "Client Approval",
          "Plan Execution Timeline", "Execute Case", "Case Completion",
