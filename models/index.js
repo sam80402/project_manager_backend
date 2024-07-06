@@ -1,5 +1,5 @@
 module.exports = {
-    admin: require('./admin_model'),
+    user: require('./user_model'),
     customer: require('./customer_model'),
     case: require('./case_model'),
   };
